@@ -12,6 +12,16 @@ import subprocess
 from typing import Optional
 
 
+def _script_fu_escape(value: str) -> str:
+    """Escape a Python string for safe use inside Script-Fu double quotes."""
+    return (
+        value.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\r", "\\r")
+        .replace("\n", "\\n")
+    )
+
+
 def find_gimp() -> str:
     """Find the GIMP executable. Raises RuntimeError if not found."""
     for name in ("gimp", "gimp-2.10", "gimp-2.99"):
@@ -73,6 +83,7 @@ def create_and_export(
 ) -> dict:
     """Create a new image in GIMP and export it."""
     abs_output = os.path.abspath(output_path)
+    safe_abs_output = _script_fu_escape(abs_output)
     os.makedirs(os.path.dirname(abs_output), exist_ok=True)
 
     ext = os.path.splitext(output_path)[1].lower()
@@ -81,22 +92,22 @@ def create_and_export(
     if ext == ".png":
         export_cmd = (
             f'(file-png-save RUN-NONINTERACTIVE image layer '
-            f'"{abs_output}" "{abs_output}" 0 9 1 1 1 1 1)'
+            f'"{safe_abs_output}" "{safe_abs_output}" 0 9 1 1 1 1 1)'
         )
     elif ext in (".jpg", ".jpeg"):
         export_cmd = (
             f'(file-jpeg-save RUN-NONINTERACTIVE image layer '
-            f'"{abs_output}" "{abs_output}" 0.85 0.0 0 0 "" 0 1 0 2)'
+            f'"{safe_abs_output}" "{safe_abs_output}" 0.85 0.0 0 0 "" 0 1 0 2)'
         )
     elif ext == ".bmp":
         export_cmd = (
             f'(file-bmp-save RUN-NONINTERACTIVE image layer '
-            f'"{abs_output}" "{abs_output}" 0)'
+            f'"{safe_abs_output}" "{safe_abs_output}" 0)'
         )
     else:
         export_cmd = (
             f'(gimp-file-overwrite RUN-NONINTERACTIVE image layer '
-            f'"{abs_output}" "{abs_output}")'
+            f'"{safe_abs_output}" "{safe_abs_output}")'
         )
 
     # Color mapping
@@ -162,28 +173,30 @@ def apply_filter_and_export(
 
     abs_input = os.path.abspath(input_path)
     abs_output = os.path.abspath(output_path)
+    safe_abs_input = _script_fu_escape(abs_input)
+    safe_abs_output = _script_fu_escape(abs_output)
     os.makedirs(os.path.dirname(abs_output), exist_ok=True)
 
     ext = os.path.splitext(output_path)[1].lower()
     if ext == ".png":
         export_cmd = (
             f'(file-png-save RUN-NONINTERACTIVE image drawable '
-            f'"{abs_output}" "{abs_output}" 0 9 1 1 1 1 1)'
+            f'"{safe_abs_output}" "{safe_abs_output}" 0 9 1 1 1 1 1)'
         )
     elif ext in (".jpg", ".jpeg"):
         export_cmd = (
             f'(file-jpeg-save RUN-NONINTERACTIVE image drawable '
-            f'"{abs_output}" "{abs_output}" 0.85 0.0 0 0 "" 0 1 0 2)'
+            f'"{safe_abs_output}" "{safe_abs_output}" 0.85 0.0 0 0 "" 0 1 0 2)'
         )
     else:
         export_cmd = (
             f'(gimp-file-overwrite RUN-NONINTERACTIVE image drawable '
-            f'"{abs_output}" "{abs_output}")'
+            f'"{safe_abs_output}" "{safe_abs_output}")'
         )
 
     script = (
         f'(let* ('
-        f'(image (car (file-png-load RUN-NONINTERACTIVE "{abs_input}" "{abs_input}")))'
+        f'(image (car (file-png-load RUN-NONINTERACTIVE "{safe_abs_input}" "{safe_abs_input}")))'
         f'(drawable (car (gimp-image-flatten image)))'
         f')'
         f'{script_fu_filter}'
