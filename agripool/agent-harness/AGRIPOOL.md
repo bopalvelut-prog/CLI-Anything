@@ -1,0 +1,3 @@
+# agripool
+
+agripool CLI harness

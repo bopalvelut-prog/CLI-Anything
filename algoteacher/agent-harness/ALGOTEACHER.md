@@ -1,0 +1,3 @@
+# algoteacher
+
+algoteacher CLI harness

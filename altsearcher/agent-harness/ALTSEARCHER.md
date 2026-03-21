@@ -1,0 +1,3 @@
+# altsearcher
+
+altsearcher CLI harness

@@ -1,0 +1,3 @@
+# algooperator
+
+algooperator CLI harness

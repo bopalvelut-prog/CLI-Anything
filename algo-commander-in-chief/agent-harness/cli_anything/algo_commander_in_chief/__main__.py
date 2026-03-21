@@ -1,0 +1,2 @@
+from cli_anything.algo_commander_in_chief.algo_commander_in_chief_cli import main
+main()

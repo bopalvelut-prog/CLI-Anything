@@ -1,0 +1,3 @@
+# agriwatchman
+
+agriwatchman CLI harness

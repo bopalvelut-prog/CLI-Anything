@@ -1,0 +1,3 @@
+# algobot
+
+algobot CLI harness

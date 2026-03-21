@@ -1,0 +1,3 @@
+# altteacher
+
+altteacher CLI harness

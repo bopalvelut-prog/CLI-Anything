@@ -1,0 +1,3 @@
+# agrici
+
+agrici CLI harness

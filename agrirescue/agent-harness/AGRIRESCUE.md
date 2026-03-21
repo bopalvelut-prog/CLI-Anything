@@ -1,0 +1,3 @@
+# agrirescue
+
+agrirescue CLI harness

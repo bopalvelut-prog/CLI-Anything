@@ -1,0 +1,3 @@
+# aerocalculator
+
+aerocalculator CLI harness

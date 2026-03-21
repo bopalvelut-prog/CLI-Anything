@@ -1,0 +1,3 @@
+# agridetector
+
+agridetector CLI harness

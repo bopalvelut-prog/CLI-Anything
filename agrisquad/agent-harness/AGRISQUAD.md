@@ -1,0 +1,3 @@
+# agrisquad
+
+agrisquad CLI harness

@@ -1,0 +1,3 @@
+# amblogger
+
+amblogger CLI harness

@@ -1,0 +1,3 @@
+# algoscraper
+
+algoscraper CLI harness

@@ -1,0 +1,3 @@
+# agrimanager
+
+agrimanager CLI harness

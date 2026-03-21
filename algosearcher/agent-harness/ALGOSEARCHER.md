@@ -1,0 +1,3 @@
+# algosearcher
+
+algosearcher CLI harness

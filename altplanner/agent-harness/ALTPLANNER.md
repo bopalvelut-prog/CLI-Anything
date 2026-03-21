@@ -1,0 +1,3 @@
+# altplanner
+
+altplanner CLI harness

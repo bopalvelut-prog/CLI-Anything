@@ -1,0 +1,3 @@
+# agrichallenge
+
+agrichallenge CLI harness

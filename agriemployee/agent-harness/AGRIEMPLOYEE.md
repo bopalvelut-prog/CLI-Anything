@@ -1,0 +1,3 @@
+# agriemployee
+
+agriemployee CLI harness

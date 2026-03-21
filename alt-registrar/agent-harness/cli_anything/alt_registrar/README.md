@@ -1,0 +1,1 @@
+# cli-anything-alt-registrar

@@ -1,0 +1,3 @@
+# algolaw
+
+algolaw CLI harness

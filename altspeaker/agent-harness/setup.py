@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-altspeaker",version="1.0.0",author="cli-anything contributors",description="altspeaker CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-altspeaker=cli_anything.altspeaker.altspeaker_cli:main"]},package_data={"cli_anything.altspeaker":["skills/*.md"]},include_package_data=True,zip_safe=False)

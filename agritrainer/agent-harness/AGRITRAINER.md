@@ -1,0 +1,3 @@
+# agritrainer
+
+agritrainer CLI harness

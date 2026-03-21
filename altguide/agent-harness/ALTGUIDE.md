@@ -1,0 +1,3 @@
+# altguide
+
+altguide CLI harness

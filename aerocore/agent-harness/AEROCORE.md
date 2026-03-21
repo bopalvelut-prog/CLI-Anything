@@ -1,0 +1,3 @@
+# aerocore
+
+aerocore CLI harness

@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-algosearcher",version="1.0.0",author="cli-anything contributors",description="algosearcher CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-algosearcher=cli_anything.algosearcher.algosearcher_cli:main"]},package_data={"cli_anything.algosearcher":["skills/*.md"]},include_package_data=True,zip_safe=False)

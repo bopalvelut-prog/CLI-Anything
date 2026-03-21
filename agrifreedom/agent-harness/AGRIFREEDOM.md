@@ -1,0 +1,3 @@
+# agrifreedom
+
+agrifreedom CLI harness

@@ -1,0 +1,3 @@
+# algoresearch
+
+algoresearch CLI harness

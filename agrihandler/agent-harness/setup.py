@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-agrihandler",version="1.0.0",author="cli-anything contributors",description="agrihandler CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-agrihandler=cli_anything.agrihandler.agrihandler_cli:main"]},package_data={"cli_anything.agrihandler":["skills/*.md"]},include_package_data=True,zip_safe=False)

@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-amb-staff",version="1.0.0",author="cli-anything contributors",description="amb-staff CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-amb-staff=cli_anything.amb_staff.amb_staff_cli:main"]},package_data={"cli_anything.amb_staff":["skills/*.md"]},include_package_data=True,zip_safe=False)

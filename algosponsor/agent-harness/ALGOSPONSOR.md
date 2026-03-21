@@ -1,0 +1,3 @@
+# algosponsor
+
+algosponsor CLI harness

@@ -1,0 +1,3 @@
+# altfinder
+
+altfinder CLI harness

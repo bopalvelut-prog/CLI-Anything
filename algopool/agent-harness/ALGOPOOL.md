@@ -1,0 +1,3 @@
+# algopool
+
+algopool CLI harness

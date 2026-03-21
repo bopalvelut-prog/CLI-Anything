@@ -1,0 +1,3 @@
+# ambseminar
+
+ambseminar CLI harness

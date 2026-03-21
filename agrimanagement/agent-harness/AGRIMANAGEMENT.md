@@ -1,0 +1,3 @@
+# agrimanagement
+
+agrimanagement CLI harness

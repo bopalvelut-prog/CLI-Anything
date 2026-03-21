@@ -1,0 +1,3 @@
+# agrichampion
+
+agrichampion CLI harness

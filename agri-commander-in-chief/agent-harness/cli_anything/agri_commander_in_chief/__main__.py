@@ -1,0 +1,2 @@
+from cli_anything.agri_commander_in_chief.agri_commander_in_chief_cli import main
+main()

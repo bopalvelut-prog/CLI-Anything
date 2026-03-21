@@ -1,0 +1,3 @@
+# algotable
+
+algotable CLI harness

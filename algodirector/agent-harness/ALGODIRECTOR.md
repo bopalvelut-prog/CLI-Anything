@@ -1,0 +1,3 @@
+# algodirector
+
+algodirector CLI harness

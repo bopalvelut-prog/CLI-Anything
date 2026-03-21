@@ -1,0 +1,3 @@
+# agricourse
+
+agricourse CLI harness

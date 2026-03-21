@@ -1,0 +1,3 @@
+# algomode
+
+algomode CLI harness

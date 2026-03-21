@@ -1,0 +1,3 @@
+# agricompanion
+
+agricompanion CLI harness

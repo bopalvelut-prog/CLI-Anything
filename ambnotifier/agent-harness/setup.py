@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-ambnotifier",version="1.0.0",author="cli-anything contributors",description="ambnotifier CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-ambnotifier=cli_anything.ambnotifier.ambnotifier_cli:main"]},package_data={"cli_anything.ambnotifier":["skills/*.md"]},include_package_data=True,zip_safe=False)

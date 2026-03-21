@@ -1,0 +1,3 @@
+# algoauthority
+
+algoauthority CLI harness

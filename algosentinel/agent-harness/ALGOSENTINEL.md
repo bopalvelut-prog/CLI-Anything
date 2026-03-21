@@ -1,0 +1,3 @@
+# algosentinel
+
+algosentinel CLI harness

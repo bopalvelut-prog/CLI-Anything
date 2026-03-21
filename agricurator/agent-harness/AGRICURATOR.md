@@ -1,0 +1,3 @@
+# agricurator
+
+agricurator CLI harness

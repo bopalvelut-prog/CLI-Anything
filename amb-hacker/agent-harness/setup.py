@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-amb-hacker",version="1.0.0",author="cli-anything contributors",description="amb-hacker CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-amb-hacker=cli_anything.amb_hacker.amb_hacker_cli:main"]},package_data={"cli_anything.amb_hacker":["skills/*.md"]},include_package_data=True,zip_safe=False)

@@ -1,0 +1,3 @@
+# aeroseminar
+
+aeroseminar CLI harness

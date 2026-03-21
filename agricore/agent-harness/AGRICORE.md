@@ -1,0 +1,3 @@
+# agricore
+
+agricore CLI harness

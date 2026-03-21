@@ -1,0 +1,3 @@
+# altsponsor
+
+altsponsor CLI harness

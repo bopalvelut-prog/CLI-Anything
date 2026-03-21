@@ -1,0 +1,3 @@
+# algoprocessor
+
+algoprocessor CLI harness

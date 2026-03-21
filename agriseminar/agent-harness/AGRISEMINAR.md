@@ -1,0 +1,3 @@
+# agriseminar
+
+agriseminar CLI harness

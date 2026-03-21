@@ -1,0 +1,3 @@
+# algoseminar
+
+algoseminar CLI harness

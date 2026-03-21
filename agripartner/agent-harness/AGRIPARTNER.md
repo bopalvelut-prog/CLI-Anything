@@ -1,0 +1,3 @@
+# agripartner
+
+agripartner CLI harness

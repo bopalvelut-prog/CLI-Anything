@@ -1,0 +1,3 @@
+# aerosponsor
+
+aerosponsor CLI harness

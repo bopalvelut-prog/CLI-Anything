@@ -1,0 +1,3 @@
+# agriplanner
+
+agriplanner CLI harness

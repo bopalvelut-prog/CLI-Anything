@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-altstudy",version="1.0.0",author="cli-anything contributors",description="altstudy CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-altstudy=cli_anything.altstudy.altstudy_cli:main"]},package_data={"cli_anything.altstudy":["skills/*.md"]},include_package_data=True,zip_safe=False)

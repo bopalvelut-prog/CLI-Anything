@@ -1,0 +1,3 @@
+# algotrainer
+
+algotrainer CLI harness

@@ -1,0 +1,3 @@
+# altbot
+
+altbot CLI harness

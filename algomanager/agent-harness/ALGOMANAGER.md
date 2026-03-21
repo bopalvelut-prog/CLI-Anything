@@ -1,0 +1,3 @@
+# algomanager
+
+algomanager CLI harness

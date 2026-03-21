@@ -1,0 +1,3 @@
+# algodetector
+
+algodetector CLI harness

@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-algo-hearing",version="1.0.0",author="cli-anything contributors",description="algo-hearing CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-algo-hearing=cli_anything.algo_hearing.algo_hearing_cli:main"]},package_data={"cli_anything.algo_hearing":["skills/*.md"]},include_package_data=True,zip_safe=False)

@@ -1,0 +1,3 @@
+# aerowatchman
+
+aerowatchman CLI harness

@@ -1,0 +1,3 @@
+# aerosquad
+
+aerosquad CLI harness

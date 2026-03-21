@@ -1,0 +1,3 @@
+# algofinder
+
+algofinder CLI harness

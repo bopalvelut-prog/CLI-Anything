@@ -1,0 +1,3 @@
+# algomethod
+
+algomethod CLI harness

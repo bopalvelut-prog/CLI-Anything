@@ -1,0 +1,3 @@
+# algoplayer
+
+algoplayer CLI harness

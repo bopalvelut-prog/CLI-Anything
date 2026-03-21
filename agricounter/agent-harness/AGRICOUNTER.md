@@ -1,0 +1,3 @@
+# agricounter
+
+agricounter CLI harness

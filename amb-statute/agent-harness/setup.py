@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-amb-statute",version="1.0.0",author="cli-anything contributors",description="amb-statute CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-amb-statute=cli_anything.amb_statute.amb_statute_cli:main"]},package_data={"cli_anything.amb_statute":["skills/*.md"]},include_package_data=True,zip_safe=False)

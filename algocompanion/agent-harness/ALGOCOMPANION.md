@@ -1,0 +1,3 @@
+# algocompanion
+
+algocompanion CLI harness

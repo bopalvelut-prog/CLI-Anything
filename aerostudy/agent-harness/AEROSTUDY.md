@@ -1,0 +1,3 @@
+# aerostudy
+
+aerostudy CLI harness

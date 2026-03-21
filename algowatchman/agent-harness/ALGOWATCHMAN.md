@@ -1,0 +1,3 @@
+# algowatchman
+
+algowatchman CLI harness

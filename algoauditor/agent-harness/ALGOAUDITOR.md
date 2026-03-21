@@ -1,0 +1,3 @@
+# algoauditor
+
+algoauditor CLI harness

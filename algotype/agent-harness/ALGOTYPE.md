@@ -1,0 +1,3 @@
+# algotype
+
+algotype CLI harness

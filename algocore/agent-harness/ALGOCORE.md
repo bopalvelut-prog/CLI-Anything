@@ -1,0 +1,3 @@
+# algocore
+
+algocore CLI harness

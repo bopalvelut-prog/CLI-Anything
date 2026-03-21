@@ -1,0 +1,3 @@
+# altscraper
+
+altscraper CLI harness

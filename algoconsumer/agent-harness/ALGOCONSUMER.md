@@ -1,0 +1,3 @@
+# algoconsumer
+
+algoconsumer CLI harness

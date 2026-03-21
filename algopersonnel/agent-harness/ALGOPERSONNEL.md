@@ -1,0 +1,3 @@
+# algopersonnel
+
+algopersonnel CLI harness

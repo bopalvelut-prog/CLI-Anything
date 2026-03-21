@@ -1,0 +1,3 @@
+# algospecialist
+
+algospecialist CLI harness

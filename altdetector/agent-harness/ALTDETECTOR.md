@@ -1,0 +1,3 @@
+# altdetector
+
+altdetector CLI harness

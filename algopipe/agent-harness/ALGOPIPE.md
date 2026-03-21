@@ -1,0 +1,3 @@
+# algopipe
+
+algopipe CLI harness

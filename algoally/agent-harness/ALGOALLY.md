@@ -1,0 +1,3 @@
+# algoally
+
+algoally CLI harness

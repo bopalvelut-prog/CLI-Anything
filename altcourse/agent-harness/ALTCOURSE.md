@@ -1,0 +1,3 @@
+# altcourse
+
+altcourse CLI harness

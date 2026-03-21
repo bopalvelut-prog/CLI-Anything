@@ -1,0 +1,3 @@
+# algosquad
+
+algosquad CLI harness

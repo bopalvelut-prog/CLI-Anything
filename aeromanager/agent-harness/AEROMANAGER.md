@@ -1,0 +1,3 @@
+# aeromanager
+
+aeromanager CLI harness

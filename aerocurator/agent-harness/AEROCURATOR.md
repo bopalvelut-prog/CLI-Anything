@@ -1,0 +1,3 @@
+# aerocurator
+
+aerocurator CLI harness

@@ -1,0 +1,3 @@
+# algopolice
+
+algopolice CLI harness

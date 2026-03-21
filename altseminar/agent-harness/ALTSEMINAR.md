@@ -1,0 +1,3 @@
+# altseminar
+
+altseminar CLI harness

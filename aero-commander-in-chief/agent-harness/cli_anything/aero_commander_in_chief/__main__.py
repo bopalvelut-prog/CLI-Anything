@@ -1,0 +1,2 @@
+from cli_anything.aero_commander_in_chief.aero_commander_in_chief_cli import main
+main()

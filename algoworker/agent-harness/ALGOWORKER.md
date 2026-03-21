@@ -1,0 +1,3 @@
+# algoworker
+
+algoworker CLI harness

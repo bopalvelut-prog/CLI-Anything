@@ -1,0 +1,3 @@
+# algocouncil
+
+algocouncil CLI harness

@@ -1,0 +1,3 @@
+# algoencoder
+
+algoencoder CLI harness

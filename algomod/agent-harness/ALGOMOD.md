@@ -1,0 +1,3 @@
+# algomod
+
+algomod CLI harness

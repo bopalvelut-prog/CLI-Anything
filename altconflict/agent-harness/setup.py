@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-altconflict",version="1.0.0",author="cli-anything contributors",description="altconflict CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-altconflict=cli_anything.altconflict.altconflict_cli:main"]},package_data={"cli_anything.altconflict":["skills/*.md"]},include_package_data=True,zip_safe=False)

@@ -1,0 +1,3 @@
+# algostaff
+
+algostaff CLI harness
