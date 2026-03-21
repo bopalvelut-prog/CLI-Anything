@@ -240,6 +240,20 @@
       "category": "communication",
       "contributor": "zhangxilong-43",
       "contributor_url": "https://github.com/zhangxilong-43"
+    },
+    {
+      "name": "ffmpeg",
+      "display_name": "FFmpeg",
+      "version": "1.0.0",
+      "description": "Multimedia processing, transcoding, and filtering via ffmpeg",
+      "requires": "ffmpeg (apt install ffmpeg)",
+      "homepage": "https://ffmpeg.org",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=ffmpeg/agent-harness",
+      "entry_point": "cli-anything-ffmpeg",
+      "skill_md": "ffmpeg/agent-harness/cli_anything/ffmpeg/skills/SKILL.md",
+      "category": "video",
+      "contributor": "bopalvelut-prog",
+      "contributor_url": "https://github.com/bopalvelut-prog"
     }
   ]
 }
