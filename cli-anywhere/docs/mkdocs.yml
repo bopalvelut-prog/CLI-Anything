@@ -1,0 +1,54 @@
+site_name: CLI-Anything
+site_description: Turn any software into an AI-controllable tool
+site_url: https://cli-anything.dev
+repo_url: https://github.com/HKUDS/CLI-Anything
+repo_name: HKUDS/CLI-Anything
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - search.suggest
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started.md
+    - Quick Start: quickstart.md
+  - Harness Gallery: gallery.md
+  - Agent Cookbook: cookbook.md
+  - Integrations:
+    - Claude Code: integrations/claude-code.md
+    - LangChain: integrations/langchain.md
+    - CrewAI: integrations/crewai.md
+    - MCP: integrations/mcp.md
+  - Contributing: contributing.md
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
