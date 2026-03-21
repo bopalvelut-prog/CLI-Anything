@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-chrome",version="1.0.0",author="cli-anything contributors",description="Headless Chrome - screenshot, PDF, Lighthouse",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-chrome=cli_anything.chrome.chrome_cli:main"]},package_data={"cli_anything.chrome":["skills/*.md"]},include_package_data=True,zip_safe=False)
