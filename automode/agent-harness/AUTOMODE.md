@@ -1,0 +1,3 @@
+# automode
+
+automode CLI harness

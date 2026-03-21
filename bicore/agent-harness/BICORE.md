@@ -1,0 +1,3 @@
+# bicore
+
+bicore CLI harness

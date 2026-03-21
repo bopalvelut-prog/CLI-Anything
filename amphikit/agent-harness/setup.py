@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-amphikit",version="1.0.0",author="cli-anything contributors",description="amphikit CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-amphikit=cli_anything.amphikit.amphikit_cli:main"]},package_data={"cli_anything.amphikit":["skills/*.md"]},include_package_data=True,zip_safe=False)

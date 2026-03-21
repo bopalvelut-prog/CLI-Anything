@@ -1,0 +1,3 @@
+# antiwork
+
+antiwork CLI harness

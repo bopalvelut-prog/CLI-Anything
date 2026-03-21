@@ -1,0 +1,3 @@
+# amphido
+
+amphido CLI harness

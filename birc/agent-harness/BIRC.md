@@ -1,0 +1,3 @@
+# birc
+
+birc CLI harness

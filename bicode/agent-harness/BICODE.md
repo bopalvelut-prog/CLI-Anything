@@ -1,0 +1,3 @@
+# bicode
+
+bicode CLI harness

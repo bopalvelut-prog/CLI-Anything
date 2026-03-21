@@ -1,0 +1,3 @@
+# amphitheme
+
+amphitheme CLI harness

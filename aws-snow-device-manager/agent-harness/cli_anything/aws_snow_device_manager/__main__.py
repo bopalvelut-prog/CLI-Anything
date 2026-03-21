@@ -1,0 +1,2 @@
+from cli_anything.aws_snow_device_manager.aws_snow_device_manager_cli import main
+main()

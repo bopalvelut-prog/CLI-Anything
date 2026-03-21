@@ -1,0 +1,3 @@
+# autostamp
+
+autostamp CLI harness

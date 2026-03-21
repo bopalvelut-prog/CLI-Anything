@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-auto-grid",version="1.0.0",author="cli-anything contributors",description="auto-grid CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-auto-grid=cli_anything.auto_grid.auto_grid_cli:main"]},package_data={"cli_anything.auto_grid":["skills/*.md"]},include_package_data=True,zip_safe=False)

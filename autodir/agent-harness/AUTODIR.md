@@ -1,0 +1,3 @@
+# autodir
+
+autodir CLI harness

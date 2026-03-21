@@ -1,0 +1,3 @@
+# autoseal
+
+autoseal CLI harness

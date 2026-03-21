@@ -1,0 +1,3 @@
+# automesh
+
+automesh CLI harness

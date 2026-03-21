@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-amphiidx",version="1.0.0",author="cli-anything contributors",description="amphiidx CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-amphiidx=cli_anything.amphiidx.amphiidx_cli:main"]},package_data={"cli_anything.amphiidx":["skills/*.md"]},include_package_data=True,zip_safe=False)

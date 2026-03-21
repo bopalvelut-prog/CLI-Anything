@@ -1,0 +1,3 @@
+# centidesk
+
+centidesk CLI harness

@@ -1,0 +1,3 @@
+# automap
+
+automap CLI harness

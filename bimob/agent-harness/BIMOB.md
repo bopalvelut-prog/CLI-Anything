@@ -1,0 +1,3 @@
+# bimob
+
+bimob CLI harness

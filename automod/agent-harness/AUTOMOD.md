@@ -1,0 +1,3 @@
+# automod
+
+automod CLI harness

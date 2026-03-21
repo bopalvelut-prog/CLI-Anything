@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-archmark",version="1.0.0",author="cli-anything contributors",description="archmark CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-archmark=cli_anything.archmark.archmark_cli:main"]},package_data={"cli_anything.archmark":["skills/*.md"]},include_package_data=True,zip_safe=False)

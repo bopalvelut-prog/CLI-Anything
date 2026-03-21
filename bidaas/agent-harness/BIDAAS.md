@@ -1,0 +1,3 @@
+# bidaas
+
+bidaas CLI harness

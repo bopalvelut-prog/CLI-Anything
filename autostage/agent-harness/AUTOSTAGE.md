@@ -1,0 +1,3 @@
+# autostage
+
+autostage CLI harness

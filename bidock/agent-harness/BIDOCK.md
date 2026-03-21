@@ -1,0 +1,3 @@
+# bidock
+
+bidock CLI harness

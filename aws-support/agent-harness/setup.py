@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-aws-support",version="1.0.0",author="cli-anything contributors",description="aws-support CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-aws-support=cli_anything.aws_support.aws_support_cli:main"]},package_data={"cli_anything.aws_support":["skills/*.md"]},include_package_data=True,zip_safe=False)

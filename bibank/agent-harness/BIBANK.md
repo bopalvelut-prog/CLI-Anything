@@ -1,0 +1,3 @@
+# bibank
+
+bibank CLI harness

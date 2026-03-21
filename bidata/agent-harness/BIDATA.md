@@ -1,0 +1,3 @@
+# bidata
+
+bidata CLI harness

@@ -1,0 +1,3 @@
+# bidir
+
+bidir CLI harness

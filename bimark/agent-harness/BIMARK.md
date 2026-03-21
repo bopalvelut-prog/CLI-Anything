@@ -1,0 +1,3 @@
+# bimark
+
+bimark CLI harness

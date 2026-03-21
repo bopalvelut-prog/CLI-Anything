@@ -1,0 +1,3 @@
+# bistore
+
+bistore CLI harness

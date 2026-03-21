@@ -1,0 +1,3 @@
+# centidir
+
+centidir CLI harness

@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-aws-signer",version="1.0.0",author="cli-anything contributors",description="aws-signer CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-aws-signer=cli_anything.aws_signer.aws_signer_cli:main"]},package_data={"cli_anything.aws_signer":["skills/*.md"]},include_package_data=True,zip_safe=False)

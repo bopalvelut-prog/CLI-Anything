@@ -1,0 +1,3 @@
+# autodb
+
+autodb CLI harness

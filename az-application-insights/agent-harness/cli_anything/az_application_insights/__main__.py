@@ -1,0 +1,2 @@
+from cli_anything.az_application_insights.az_application_insights_cli import main
+main()

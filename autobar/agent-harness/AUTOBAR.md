@@ -1,0 +1,3 @@
+# autobar
+
+autobar CLI harness

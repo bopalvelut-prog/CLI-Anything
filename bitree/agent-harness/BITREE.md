@@ -1,0 +1,3 @@
+# bitree
+
+bitree CLI harness

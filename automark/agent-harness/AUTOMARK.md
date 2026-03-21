@@ -1,0 +1,3 @@
+# automark
+
+automark CLI harness

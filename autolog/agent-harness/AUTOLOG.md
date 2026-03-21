@@ -1,0 +1,3 @@
+# autolog
+
+autolog CLI harness

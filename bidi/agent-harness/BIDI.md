@@ -1,0 +1,3 @@
+# bidi
+
+bidi CLI harness

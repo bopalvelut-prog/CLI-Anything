@@ -1,0 +1,3 @@
+# autosync
+
+autosync CLI harness

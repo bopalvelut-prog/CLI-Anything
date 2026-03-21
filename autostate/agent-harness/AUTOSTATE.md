@@ -1,0 +1,3 @@
+# autostate
+
+autostate CLI harness

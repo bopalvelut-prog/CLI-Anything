@@ -1,0 +1,3 @@
+# bitest
+
+bitest CLI harness

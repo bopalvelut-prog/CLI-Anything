@@ -1,0 +1,3 @@
+# autocloud
+
+autocloud CLI harness

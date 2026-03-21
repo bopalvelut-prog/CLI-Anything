@@ -1,0 +1,3 @@
+# bido
+
+bido CLI harness

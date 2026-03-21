@@ -1,0 +1,3 @@
+# autocore
+
+autocore CLI harness

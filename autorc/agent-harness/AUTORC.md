@@ -1,0 +1,3 @@
+# autorc
+
+autorc CLI harness

@@ -1,0 +1,3 @@
+# centichunk
+
+centichunk CLI harness

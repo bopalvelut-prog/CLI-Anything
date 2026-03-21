@@ -1,0 +1,3 @@
+# binet
+
+binet CLI harness

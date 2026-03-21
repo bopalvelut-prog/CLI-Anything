@@ -1,0 +1,3 @@
+# automenu
+
+automenu CLI harness

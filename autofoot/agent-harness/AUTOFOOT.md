@@ -1,0 +1,3 @@
+# autofoot
+
+autofoot CLI harness

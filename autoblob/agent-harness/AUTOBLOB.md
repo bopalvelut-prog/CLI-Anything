@@ -1,0 +1,3 @@
+# autoblob
+
+autoblob CLI harness

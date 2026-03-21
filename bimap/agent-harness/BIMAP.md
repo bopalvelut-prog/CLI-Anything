@@ -1,0 +1,3 @@
+# bimap
+
+bimap CLI harness

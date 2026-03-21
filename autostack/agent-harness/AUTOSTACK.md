@@ -1,0 +1,3 @@
+# autostack
+
+autostack CLI harness

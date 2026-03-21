@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-auto-bank",version="1.0.0",author="cli-anything contributors",description="auto-bank CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-auto-bank=cli_anything.auto_bank.auto_bank_cli:main"]},package_data={"cli_anything.auto_bank":["skills/*.md"]},include_package_data=True,zip_safe=False)

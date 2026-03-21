@@ -1,0 +1,3 @@
+# bidesk
+
+bidesk CLI harness

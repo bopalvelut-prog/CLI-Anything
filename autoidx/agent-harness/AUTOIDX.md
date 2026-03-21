@@ -1,0 +1,3 @@
+# autoidx
+
+autoidx CLI harness

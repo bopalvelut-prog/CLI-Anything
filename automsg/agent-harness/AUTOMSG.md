@@ -1,0 +1,3 @@
+# automsg
+
+automsg CLI harness

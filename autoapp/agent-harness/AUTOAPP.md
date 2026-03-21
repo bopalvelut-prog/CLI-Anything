@@ -1,0 +1,3 @@
+# autoapp
+
+autoapp CLI harness

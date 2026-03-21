@@ -1,0 +1,3 @@
+# bimenu
+
+bimenu CLI harness

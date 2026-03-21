@@ -1,0 +1,3 @@
+# autotype
+
+autotype CLI harness

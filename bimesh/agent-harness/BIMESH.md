@@ -1,0 +1,3 @@
+# bimesh
+
+bimesh CLI harness

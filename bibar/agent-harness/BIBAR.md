@@ -1,0 +1,3 @@
+# bibar
+
+bibar CLI harness

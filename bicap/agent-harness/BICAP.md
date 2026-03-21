@@ -1,0 +1,3 @@
+# bicap
+
+bicap CLI harness

@@ -1,0 +1,3 @@
+# bimode
+
+bimode CLI harness

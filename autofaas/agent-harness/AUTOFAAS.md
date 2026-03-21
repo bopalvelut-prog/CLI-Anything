@@ -1,0 +1,3 @@
+# autofaas
+
+autofaas CLI harness

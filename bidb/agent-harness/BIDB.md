@@ -1,0 +1,3 @@
+# bidb
+
+bidb CLI harness

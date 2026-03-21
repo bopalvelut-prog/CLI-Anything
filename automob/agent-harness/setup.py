@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-automob",version="1.0.0",author="cli-anything contributors",description="automob CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-automob=cli_anything.automob.automob_cli:main"]},package_data={"cli_anything.automob":["skills/*.md"]},include_package_data=True,zip_safe=False)

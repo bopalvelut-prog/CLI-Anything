@@ -1,0 +1,3 @@
+# autostore
+
+autostore CLI harness

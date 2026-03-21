@@ -1,0 +1,3 @@
+# bimod
+
+bimod CLI harness

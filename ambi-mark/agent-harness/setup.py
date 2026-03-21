@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-ambi-mark",version="1.0.0",author="cli-anything contributors",description="ambi-mark CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-ambi-mark=cli_anything.ambi_mark.ambi_mark_cli:main"]},package_data={"cli_anything.ambi_mark":["skills/*.md"]},include_package_data=True,zip_safe=False)

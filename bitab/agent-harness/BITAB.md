@@ -1,0 +1,3 @@
+# bitab
+
+bitab CLI harness

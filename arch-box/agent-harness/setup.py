@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-arch-box",version="1.0.0",author="cli-anything contributors",description="arch-box CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-arch-box=cli_anything.arch_box.arch_box_cli:main"]},package_data={"cli_anything.arch_box":["skills/*.md"]},include_package_data=True,zip_safe=False)

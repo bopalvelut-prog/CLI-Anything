@@ -1,0 +1,3 @@
+# bimsg
+
+bimsg CLI harness

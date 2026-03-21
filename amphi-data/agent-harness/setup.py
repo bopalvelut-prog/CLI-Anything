@@ -1,0 +1,2 @@
+from setuptools import setup,find_namespace_packages
+setup(name="cli-anything-amphi-data",version="1.0.0",author="cli-anything contributors",description="amphi-data CLI harness",url="https://github.com/HKUDS/CLI-Anything",packages=find_namespace_packages(include=["cli_anything.*"]),python_requires=">=3.10",install_requires=["click>=8.0.0","prompt-toolkit>=3.0.0"],entry_points={"console_scripts":["cli-anything-amphi-data=cli_anything.amphi_data.amphi_data_cli:main"]},package_data={"cli_anything.amphi_data":["skills/*.md"]},include_package_data=True,zip_safe=False)

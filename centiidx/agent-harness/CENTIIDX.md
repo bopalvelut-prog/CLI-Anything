@@ -1,0 +1,3 @@
+# centiidx
+
+centiidx CLI harness

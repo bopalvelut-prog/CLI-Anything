@@ -1,0 +1,3 @@
+# archdir
+
+archdir CLI harness

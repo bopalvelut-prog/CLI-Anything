@@ -1,0 +1,3 @@
+# centiapp
+
+centiapp CLI harness

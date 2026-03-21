@@ -1,0 +1,3 @@
+# ambigate
+
+ambigate CLI harness

@@ -1,0 +1,3 @@
+# autobadge
+
+autobadge CLI harness

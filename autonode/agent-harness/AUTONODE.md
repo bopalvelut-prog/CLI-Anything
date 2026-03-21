@@ -1,0 +1,3 @@
+# autonode
+
+autonode CLI harness

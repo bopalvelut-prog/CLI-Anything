@@ -1,0 +1,3 @@
+# autoadd
+
+autoadd CLI harness

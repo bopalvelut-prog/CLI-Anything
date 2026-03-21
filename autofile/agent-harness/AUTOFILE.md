@@ -1,0 +1,3 @@
+# autofile
+
+autofile CLI harness

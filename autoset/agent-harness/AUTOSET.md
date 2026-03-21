@@ -1,0 +1,3 @@
+# autoset
+
+autoset CLI harness
