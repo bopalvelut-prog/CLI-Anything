@@ -240,6 +240,34 @@
       "category": "communication",
       "contributor": "zhangxilong-43",
       "contributor_url": "https://github.com/zhangxilong-43"
+    },
+    {
+      "name": "vlc",
+      "display_name": "VLC",
+      "version": "1.0.0",
+      "description": "Media playback, transcoding, streaming, screenshot capture, and audio extraction via cvlc",
+      "requires": "vlc (apt install vlc)",
+      "homepage": "https://www.videolan.org/vlc/",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=vlc/agent-harness",
+      "entry_point": "cli-anything-vlc",
+      "skill_md": "vlc/agent-harness/cli_anything/vlc/skills/SKILL.md",
+      "category": "media",
+      "contributor": "bopalvelut-prog",
+      "contributor_url": "https://github.com/bopalvelut-prog"
+    },
+    {
+      "name": "freecad",
+      "display_name": "FreeCAD",
+      "version": "1.0.0",
+      "description": "Parametric 3D CAD modeling via freecadcmd - primitives, booleans, extrusions, STEP/STL export",
+      "requires": "freecad (apt install freecad freecad-python3)",
+      "homepage": "https://www.freecad.org",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=freecad/agent-harness",
+      "entry_point": "cli-anything-freecad",
+      "skill_md": "freecad/agent-harness/cli_anything/freecad/skills/SKILL.md",
+      "category": "cad",
+      "contributor": "bopalvelut-prog",
+      "contributor_url": "https://github.com/bopalvelut-prog"
     }
   ]
 }

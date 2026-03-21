@@ -40,6 +40,8 @@
 !/mermaid/
 !/adguardhome/
 !/ollama/
+!/vlc/
+!/freecad/
 
 # Step 5: Inside each software dir, ignore everything (including dotfiles)
 /gimp/*
@@ -72,23 +74,14 @@
 /adguardhome/.*
 /ollama/*
 /ollama/.*
+/vlc/*
+/vlc/.*
+/freecad/*
+/freecad/.*
 
-# Step 6: ...except agent-harness/
-!/gimp/agent-harness/
-!/blender/agent-harness/
-!/inkscape/agent-harness/
-!/audacity/agent-harness/
-!/libreoffice/agent-harness/
-!/mubu/agent-harness/
-!/obs-studio/agent-harness/
-!/kdenlive/agent-harness/
-!/shotcut/agent-harness/
-!/anygen/agent-harness/
-!/zoom/agent-harness/
-!/drawio/agent-harness/
-!/mermaid/agent-harness/
-!/adguardhome/agent-harness/
-!/ollama/agent-harness/
+# Step 6: ...except agent-harness
+!/vlc/agent-harness/
+!/freecad/agent-harness/
 
 # Step 7: Ignore build artifacts within allowed dirs
 **/__pycache__/
