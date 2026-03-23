@@ -1,80 +1,90 @@
-"""Ollama text generation and chat — streaming and non-streaming inference."""
+"""OpenAI-compatible text generation and chat for prima.cpp/llama.cpp."""
 
 import sys
 from cli_anything.ollama.utils.ollama_backend import api_post, api_post_stream
 
 
-def generate(base_url: str, model: str, prompt: str,
-             system: str | None = None, template: str | None = None,
-             context: list | None = None, options: dict | None = None,
-             stream: bool = True):
-    """Generate a text completion.
+def generate(
+    base_url: str,
+    model: str,
+    prompt: str,
+    system: str | None = None,
+    template: str | None = None,
+    context: list | None = None,
+    options: dict | None = None,
+    stream: bool = True,
+):
+    """Generate a text completion via OpenAI-compatible /v1/completions."""
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
 
-    Args:
-        base_url: Ollama server URL.
-        model: Model name.
-        prompt: Input prompt.
-        system: Optional system message.
-        template: Optional prompt template override.
-        context: Optional context from previous generate call.
-        options: Optional model parameters (temperature, top_p, etc.).
-        stream: If True, yields response chunks. If False, returns complete response.
-
-    Returns/Yields:
-        Response dicts with 'response' text and metadata.
-    """
-    data = {"model": model, "prompt": prompt, "stream": stream}
-    if system is not None:
-        data["system"] = system
-    if template is not None:
-        data["template"] = template
-    if context is not None:
-        data["context"] = context
-    if options is not None:
-        data["options"] = options
-
-    if stream:
-        return api_post_stream(base_url, "/api/generate", data)
-    else:
-        return api_post(base_url, "/api/generate", data, timeout=300)
-
-
-def chat(base_url: str, model: str, messages: list[dict],
-         options: dict | None = None, stream: bool = True):
-    """Send a chat completion request.
-
-    Args:
-        base_url: Ollama server URL.
-        model: Model name.
-        messages: List of message dicts with 'role' and 'content' keys.
-        options: Optional model parameters.
-        stream: If True, yields response chunks. If False, returns complete response.
-
-    Returns/Yields:
-        Response dicts with 'message' containing assistant reply.
-    """
-    data = {"model": model, "messages": messages, "stream": stream}
-    if options is not None:
-        data["options"] = options
+    data = {
+        "model": model,
+        "messages": messages,
+        "stream": stream,
+    }
+    if options:
+        if "temperature" in options:
+            data["temperature"] = options["temperature"]
+        if "top_p" in options:
+            data["top_p"] = options["top_p"]
+        if "num_predict" in options:
+            data["max_tokens"] = options["num_predict"]
 
     if stream:
-        return api_post_stream(base_url, "/api/chat", data)
+        return api_post_stream(base_url, "/v1/chat/completions", data)
     else:
-        return api_post(base_url, "/api/chat", data, timeout=300)
+        result = api_post(base_url, "/v1/chat/completions", data, timeout=300)
+        # Convert OpenAI response to Ollama-compatible format
+        choice = result.get("choices", [{}])[0]
+        content = choice.get("message", {}).get("content", "")
+        return {
+            "response": content,
+            "done": True,
+            "message": {"role": "assistant", "content": content},
+        }
+
+
+def chat(
+    base_url: str,
+    model: str,
+    messages: list[dict],
+    options: dict | None = None,
+    stream: bool = True,
+):
+    """Send a chat completion request via /v1/chat/completions."""
+    data = {
+        "model": model,
+        "messages": messages,
+        "stream": stream,
+    }
+    if options:
+        if "temperature" in options:
+            data["temperature"] = options["temperature"]
+        if "top_p" in options:
+            data["top_p"] = options["top_p"]
+        if "num_predict" in options:
+            data["max_tokens"] = options["num_predict"]
+
+    if stream:
+        return api_post_stream(base_url, "/v1/chat/completions", data)
+    else:
+        result = api_post(base_url, "/v1/chat/completions", data, timeout=300)
+        # Convert OpenAI response to Ollama-compatible format
+        choice = result.get("choices", [{}])[0]
+        content = choice.get("message", {}).get("content", "")
+        return {
+            "done": True,
+            "message": {"role": "assistant", "content": content},
+        }
 
 
 def stream_to_stdout(chunks) -> dict:
-    """Print streaming tokens to stdout and return the final response.
-
-    Args:
-        chunks: Generator of response chunks from generate() or chat().
-
-    Returns:
-        The final chunk (contains metadata like total_duration, etc.).
-    """
+    """Print streaming tokens to stdout and return the final response."""
     final = {}
     for chunk in chunks:
-        # generate endpoint uses 'response', chat endpoint uses 'message.content'
         if "response" in chunk:
             sys.stdout.write(chunk["response"])
             sys.stdout.flush()

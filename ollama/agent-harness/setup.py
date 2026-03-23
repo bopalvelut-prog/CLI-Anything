@@ -12,11 +12,11 @@ with open("cli_anything/ollama/README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="cli-anything-ollama",
-    version="1.0.1",
+    name="cli-anything-openai",
+    version="2.0.0",
     author="cli-anything contributors",
     author_email="",
-    description="CLI harness for Ollama - Local LLM inference and model management via Ollama REST API. Recommended: Ollama running at http://localhost:11434",
+    description="CLI harness for OpenAI-compatible LLM servers (prima.cpp/llama.cpp). Default: http://localhost:8080",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/HKUDS/CLI-Anything",

@@ -1,80 +1,74 @@
-"""Ollama model management — list, pull, show, delete, copy, running models."""
+"""OpenAI-compatible model listing for prima.cpp/llama.cpp."""
 
-from cli_anything.ollama.utils.ollama_backend import (
-    api_get, api_post, api_post_stream, api_delete,
-)
+from cli_anything.ollama.utils.ollama_backend import api_get
 
 
 def list_models(base_url: str) -> dict:
-    """List all locally available models.
+    """List available models on the server.
 
     Returns:
         Dict with 'models' key containing list of model info dicts.
     """
-    return api_get(base_url, "/api/tags")
+    try:
+        result = api_get(base_url, "/v1/models")
+        # Convert OpenAI format to Ollama-compatible format
+        openai_models = result.get("data", [])
+        models = []
+        for m in openai_models:
+            models.append(
+                {
+                    "name": m.get("id", ""),
+                    "size": 0,
+                    "modified_at": m.get("created", ""),
+                }
+            )
+        return {"models": models}
+    except Exception:
+        return {"models": []}
 
 
 def show_model(base_url: str, name: str) -> dict:
-    """Show details about a model (parameters, template, license, etc.).
-
-    Args:
-        name: Model name (e.g., 'llama3.2', 'mistral:latest').
-
-    Returns:
-        Dict with model details.
-    """
-    return api_post(base_url, "/api/show", {"name": name})
+    """Show model details (stub — limited on OpenAI-compatible API)."""
+    return {"name": name, "details": "Model info available via /v1/models endpoint"}
 
 
 def pull_model(base_url: str, name: str, stream: bool = True):
-    """Download a model from the Ollama library.
-
-    Args:
-        name: Model name to pull.
-        stream: If True, yields progress dicts. If False, returns final result.
-
-    Returns/Yields:
-        Progress dicts with 'status', 'digest', 'total', 'completed' keys.
-    """
-    data = {"name": name, "stream": stream}
+    """Load a model (stub — model loading is server-side for llama.cpp)."""
     if stream:
-        return api_post_stream(base_url, "/api/pull", data)
+        yield {"status": f"Model '{name}' is served by prima.cpp/llama.cpp server"}
     else:
-        return api_post(base_url, "/api/pull", data, timeout=600)
+        return {"status": f"Model '{name}' is served by prima.cpp/llama.cpp server"}
 
 
 def delete_model(base_url: str, name: str) -> dict:
-    """Delete a model from local storage.
-
-    Args:
-        name: Model name to delete.
-
-    Returns:
-        Status dict.
-    """
-    return api_delete(base_url, "/api/delete", {"name": name})
+    """Delete model (not supported on OpenAI-compatible API)."""
+    return {
+        "status": "not_supported",
+        "message": "Model deletion not available via OpenAI-compatible API",
+    }
 
 
 def copy_model(base_url: str, source: str, destination: str) -> dict:
-    """Copy a model to a new name.
-
-    Args:
-        source: Source model name.
-        destination: New model name.
-
-    Returns:
-        Status dict.
-    """
-    return api_post(base_url, "/api/copy", {
-        "source": source,
-        "destination": destination,
-    })
+    """Copy model (not supported on OpenAI-compatible API)."""
+    return {
+        "status": "not_supported",
+        "message": "Model copying not available via OpenAI-compatible API",
+    }
 
 
 def running_models(base_url: str) -> dict:
-    """List models currently loaded in memory.
-
-    Returns:
-        Dict with 'models' key containing currently running model info.
-    """
-    return api_get(base_url, "/api/ps")
+    """List loaded models."""
+    try:
+        result = api_get(base_url, "/v1/models")
+        openai_models = result.get("data", [])
+        models = []
+        for m in openai_models:
+            models.append(
+                {
+                    "name": m.get("id", ""),
+                    "size": 0,
+                }
+            )
+        return {"models": models}
+    except Exception:
+        return {"models": []}

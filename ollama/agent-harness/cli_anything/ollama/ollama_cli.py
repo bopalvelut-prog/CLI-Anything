@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Ollama CLI — A command-line interface for local LLM inference and model management.
+"""OpenAI-compatible CLI for prima.cpp/llama.cpp local LLM inference.
 
-This CLI provides full access to the Ollama REST API for managing models,
-generating text, chatting, and creating embeddings.
+This CLI provides access to the OpenAI-compatible API exposed by
+prima.cpp and llama.cpp servers for generating text, chatting, and
+creating embeddings.
 
 Usage:
     # One-shot commands
     cli-anything-ollama model list
-    cli-anything-ollama generate text --model llama3.2 --prompt "Hello"
+    cli-anything-ollama generate text --model qwen2.5-0.5b --prompt "Hello"
     cli-anything-ollama --json server status
 
     # Interactive REPL
@@ -89,6 +90,7 @@ def handle_error(func):
                 click.echo(f"Error: {e}", err=True)
             if not _repl_mode:
                 sys.exit(1)
+
     wrapper.__name__ = func.__name__
     wrapper.__doc__ = func.__doc__
     return wrapper
@@ -97,11 +99,15 @@ def handle_error(func):
 # ── Main CLI Group ──────────────────────────────────────────────
 @click.group(invoke_without_command=True)
 @click.option("--json", "use_json", is_flag=True, help="Output as JSON")
-@click.option("--host", type=str, default=None,
-              help=f"Ollama server URL (default: {DEFAULT_BASE_URL})")
+@click.option(
+    "--host",
+    type=str,
+    default=None,
+    help=f"Server URL (default: {DEFAULT_BASE_URL})",
+)
 @click.pass_context
 def cli(ctx, use_json, host):
-    """Ollama CLI — Local LLM inference and model management.
+    """OpenAI-compatible CLI for prima.cpp/llama.cpp local LLM inference.
 
     Run without a subcommand to enter interactive REPL mode.
     """
@@ -157,7 +163,7 @@ def model_show(name):
 @click.option("--no-stream", is_flag=True, help="Wait for completion without progress")
 @handle_error
 def model_pull(name, no_stream):
-    """Download a model from the Ollama library."""
+    """Download/load a model (managed by server)."""
     if no_stream or _json_output:
         result = models_mod.pull_model(_host, name, stream=False)
         output(result, f"Pulled: {name}")
@@ -178,7 +184,10 @@ def model_pull(name, no_stream):
                 bar_w = 30
                 filled = int(bar_w * completed / total)
                 bar = "█" * filled + "░" * (bar_w - filled)
-                click.echo(f"\r  {bar} {pct:3d}% ({_format_size(completed)}/{_format_size(total)})", nl=False)
+                click.echo(
+                    f"\r  {bar} {pct:3d}% ({_format_size(completed)}/{_format_size(total)})",
+                    nl=False,
+                )
         click.echo(f"\nDone: {name}")
 
 
@@ -220,7 +229,9 @@ def model_ps():
             size = m.get("size", 0)
             proc = m.get("size_vram", 0)
             until = m.get("expires_at", "")[:19]
-            click.echo(f"{name:<40} {_format_size(size):<12} {_format_size(proc):<15} {until}")
+            click.echo(
+                f"{name:<40} {_format_size(size):<12} {_format_size(proc):<15} {until}"
+            )
 
 
 # ── Generate Commands ────────────────────────────────────────────
@@ -234,12 +245,16 @@ def generate():
 @click.option("--model", "-m", "model_name", required=True, help="Model name")
 @click.option("--prompt", "-p", required=True, help="Input prompt")
 @click.option("--system", "-s", default=None, help="System message")
-@click.option("--no-stream", is_flag=True, help="Return complete response instead of streaming")
+@click.option(
+    "--no-stream", is_flag=True, help="Return complete response instead of streaming"
+)
 @click.option("--temperature", type=float, default=None, help="Sampling temperature")
 @click.option("--top-p", type=float, default=None, help="Top-p sampling")
 @click.option("--num-predict", type=int, default=None, help="Max tokens to generate")
 @handle_error
-def generate_text(model_name, prompt, system, no_stream, temperature, top_p, num_predict):
+def generate_text(
+    model_name, prompt, system, no_stream, temperature, top_p, num_predict
+):
     """Generate text from a prompt."""
     global _last_model
     _last_model = model_name
@@ -254,29 +269,50 @@ def generate_text(model_name, prompt, system, no_stream, temperature, top_p, num
 
     if no_stream or _json_output:
         result = gen_mod.generate(
-            _host, model_name, prompt, system=system,
-            options=options or None, stream=False,
+            _host,
+            model_name,
+            prompt,
+            system=system,
+            options=options or None,
+            stream=False,
         )
         output(result)
     else:
         chunks = gen_mod.generate(
-            _host, model_name, prompt, system=system,
-            options=options or None, stream=True,
+            _host,
+            model_name,
+            prompt,
+            system=system,
+            options=options or None,
+            stream=True,
         )
         final = gen_mod.stream_to_stdout(chunks)
 
 
 @generate.command("chat")
 @click.option("--model", "-m", "model_name", required=True, help="Model name")
-@click.option("--message", "messages_input", multiple=True,
-              help="Messages as role:content (repeatable)")
-@click.option("--file", "messages_file", type=click.Path(exists=True), default=None,
-              help="JSON file with messages array")
-@click.option("--no-stream", is_flag=True, help="Return complete response instead of streaming")
+@click.option(
+    "--message",
+    "messages_input",
+    multiple=True,
+    help="Messages as role:content (repeatable)",
+)
+@click.option(
+    "--file",
+    "messages_file",
+    type=click.Path(exists=True),
+    default=None,
+    help="JSON file with messages array",
+)
+@click.option(
+    "--no-stream", is_flag=True, help="Return complete response instead of streaming"
+)
 @click.option("--temperature", type=float, default=None, help="Sampling temperature")
 @click.option("--continue-chat", is_flag=True, help="Continue previous chat session")
 @handle_error
-def generate_chat(model_name, messages_input, messages_file, no_stream, temperature, continue_chat):
+def generate_chat(
+    model_name, messages_input, messages_file, no_stream, temperature, continue_chat
+):
     """Send a chat completion request."""
     global _last_model, _chat_history
     _last_model = model_name
@@ -304,16 +340,22 @@ def generate_chat(model_name, messages_input, messages_file, no_stream, temperat
 
     if no_stream or _json_output:
         result = gen_mod.chat(
-            _host, model_name, messages,
-            options=options or None, stream=False,
+            _host,
+            model_name,
+            messages,
+            options=options or None,
+            stream=False,
         )
         if not _json_output and "message" in result:
             _chat_history = messages + [result["message"]]
         output(result)
     else:
         chunks = gen_mod.chat(
-            _host, model_name, messages,
-            options=options or None, stream=True,
+            _host,
+            model_name,
+            messages,
+            options=options or None,
+            stream=True,
         )
         # Collect streamed content for history
         collected = []
@@ -341,15 +383,20 @@ def embed():
 @embed.command("text")
 @click.option("--model", "-m", "model_name", required=True, help="Model name")
 @click.option(
-    "--input", "-i", "input_texts",
-    multiple=True, required=True,
+    "--input",
+    "-i",
+    "input_texts",
+    multiple=True,
+    required=True,
     help="Text to embed. Repeat for batch embeddings.",
 )
 @handle_error
 def embed_text(model_name, input_texts):
     """Generate embeddings for text."""
     payload = list(input_texts)
-    result = embed_mod.embed(_host, model_name, payload[0] if len(payload) == 1 else payload)
+    result = embed_mod.embed(
+        _host, model_name, payload[0] if len(payload) == 1 else payload
+    )
     if _json_output:
         output(result)
     else:
@@ -377,15 +424,15 @@ def server():
 @server.command("status")
 @handle_error
 def server_status():
-    """Check if Ollama server is running."""
+    """Check if server is running."""
     result = server_mod.server_status(_host)
-    output(result, f"Ollama server at {_host}: running")
+    output(result, f"Server at {_host}: running")
 
 
 @server.command("version")
 @handle_error
 def server_version():
-    """Show Ollama server version."""
+    """Show server version."""
     result = server_mod.version(_host)
     output(result)
 
@@ -439,19 +486,19 @@ def repl():
     global _repl_mode
     _repl_mode = True
 
-    skin = ReplSkin("ollama", version="1.0.1")
+    skin = ReplSkin("llamacpp", version="1.0.1")
     skin.print_banner()
 
     pt_session = skin.create_prompt_session()
 
     _repl_commands = {
-        "model":    "list|show|pull|rm|copy|ps",
+        "model": "list|show|pull|rm|copy|ps",
         "generate": "text|chat",
-        "embed":    "text",
-        "server":   "status|version",
-        "session":  "status|history",
-        "help":     "Show this help",
-        "quit":     "Exit REPL",
+        "embed": "text",
+        "server": "status|version",
+        "session": "status|history",
+        "help": "Show this help",
+        "quit": "Exit REPL",
     }
 
     while True:
